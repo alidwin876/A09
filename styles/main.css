@@ -2,6 +2,11 @@
 :root {
 	--accent-color: #800000;  /* could also be coded #800 */
 	--gradient-color: #f6bb73;
+    /* adding new colors */
+
+    --light-color-menu: beige;
+    --mid-color-menu: antiquewhite;
+    --dark-color-menu: black;
 }
 
 /* reset */
@@ -125,4 +130,85 @@ footer {
 }
 .large {
 	font-size: 125%;
+}
+
+/* Alexander Lidwin 2025, IS117005 Editing CSS Properties */
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+
+    & li {
+        flex-basis: 20%;
+        text-align: center;
+    }
+}
+
+.navbar {
+    background-color: var(--accent-color);
+
+    & a {
+        display: block;
+        padding: 1em;
+        /* gets rid of underline */
+        text-decoration: none;
+        color: var(--light-color-menu);
+    }
+    & ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    & a:hover,
+    & a:focus,
+    & a.current {
+        /* set the background to the middle color */
+        background-color: var(--mid-color-menu);
+        /* set the text to the dark color */
+        color: var(--dark-color-menu);
+
+        margin: 0 1px 2px 1px;
+    }
+}
+
+
+/* targets any menu item such as menu-item or li inside of the menu class and also contains an element with the submenu class */
+
+.menu li:has(.submenu) {
+    position: relative;
+}
+
+/* add space between txt and triangle */
+.menu li a small {
+    margin-left: 0.40em;
+}
+
+.menu li:hover .submenu {
+    display: block;
+}
+
+.submenu {
+    position: absolute;
+    left: 0;
+    right: 0;
+    background-color: var(--accent-color);
+    color: var(--light-color-menu);
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    & > li a {
+        margin: 0 2px 2px;
+    }
+}
+
+.menu > li:first-child a {
+    margin-left: 0;
+}
+
+.menu > li:last-child a {
+    margin-right: 0;
 }
